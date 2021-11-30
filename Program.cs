@@ -6,10 +6,11 @@ namespace CorEscuela
     {
         static void Main(string[] args)
         {
-            var escuela = new Escuela("Platzi Escuela", 2012);
+            var escuela = new Escuela("Platzi Escuela", 2012, TiposEscuela.Primaria,
+                pais: "Colombia", ciudad: "Bogotá");
             escuela.Pais = "Colombia";
             escuela.Ciudad = "Bogotá";
-            escuela.TipoEscuela = TiposEscuela.Primaria;
+
             Console.WriteLine(escuela);
         }
     }
