@@ -28,14 +28,21 @@ namespace CorEscuela
             WriteLine("Cursos de la Escuela");
             WriteLine("*********************");
 
-
-            if (escuela?.Cursos != null)
+            try
             {
-                foreach (var curso in escuela.Cursos)
+                if (escuela?.Cursos != null)
                 {
-                    Console.WriteLine($"Nombre: {curso.Nombre}, Id: {curso.UniqueId}");
+                    foreach (var curso in escuela.Cursos)
+                    {
+                        Console.WriteLine($"Nombre: {curso.Nombre}, Id: {curso.UniqueId}");
+                    }
                 }
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return;
             }
+            
         }
 
         private static void ImprimirCursosWhile(Curso[] arregloCursos)
