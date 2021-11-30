@@ -9,8 +9,8 @@ namespace CorEscuela
             var escuela = new Escuela("Platzi Escuela", 2012);
             escuela.Pais = "Colombia";
             escuela.Ciudad = "Bogotá";
-
-            Console.WriteLine(escuela.Nombre);
+            escuela.TipoEscuela = TiposEscuela.Primaria;
+            Console.WriteLine(escuela);
         }
     }
 }
