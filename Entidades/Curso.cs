@@ -1,5 +1,4 @@
-﻿
-namespace CorEscuela.Entidades
+﻿namespace CoreEscuela.Entidades
 {
     public class Curso
     {
@@ -7,7 +6,7 @@ namespace CorEscuela.Entidades
 
         public string Nombre { get; set; }
 
-        public string Jornada { get; set; }
+        public TiposJornada Jornada { get; set; }
 
         public Curso() => UniqueId = Guid.NewGuid().ToString();
     }

@@ -1,9 +1,9 @@
-﻿namespace CorEscuela.Entidades
+namespace CoreEscuela.Entidades
 {
     public enum TiposEscuela
     {
-        Primaria,
-        Secundaria,
-        Preescolar
+        Primaria, 
+        Secundaria, 
+        PreEscolar
     }
 }

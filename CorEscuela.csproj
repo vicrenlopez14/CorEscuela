@@ -7,12 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Entidades\TiposJornada.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Entidades\TiposJornada.cs" />
-  </ItemGroup>
-
 </Project>

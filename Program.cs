@@ -1,4 +1,4 @@
-﻿using CorEscuela.Entidades;
+﻿using CoreEscuela.Entidades;
 using static System.Console;
 
 namespace CorEscuela
@@ -12,12 +12,26 @@ namespace CorEscuela
             escuela.Pais = "Colombia";
             escuela.Ciudad = "Bogotá";
 
-            escuela.Cursos = new Curso[] {
-              new Curso() { Nombre = "101" },
-              new Curso() { Nombre = "201" },
-              new Curso()  { Nombre = "301" },
-           };
+            escuela.Cursos = new List<Curso>()
+            {
+              new Curso() { Nombre = "101", Jornada = TiposJornada.Mañana },
+              new Curso() { Nombre = "201", Jornada = TiposJornada.Mañana },
+              new Curso()  { Nombre = "301", Jornada = TiposJornada.Mañana },
+            };
 
+            escuela.Cursos.Add(new Curso() { Nombre = "102", Jornada = TiposJornada.Tarde });
+            escuela.Cursos.Add(new Curso() { Nombre = "202", Jornada = TiposJornada.Tarde });
+
+            var otrColeccion = new List<Curso>()
+            {
+              new Curso() { Nombre = "401", Jornada = TiposJornada.Mañana },
+              new Curso() { Nombre = "501", Jornada = TiposJornada.Mañana },
+              new Curso()  { Nombre = "502", Jornada = TiposJornada.Tarde },
+            };
+
+            escuela.Cursos.Remove();
+            //Agregar un Iterable
+            escuela.Cursos.AddRange(otrColeccion);
 
             ImprimirCursosEscuela(escuela);
         }
@@ -37,12 +51,13 @@ namespace CorEscuela
                         Console.WriteLine($"Nombre: {curso.Nombre}, Id: {curso.UniqueId}");
                     }
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex);
                 return;
             }
-            
+
         }
 
         private static void ImprimirCursosWhile(Curso[] arregloCursos)
@@ -54,6 +69,7 @@ namespace CorEscuela
                 contador++;
             }
         }
+
         private static void ImprimirCursosDoWhile(Curso[] arregloCursos)
         {
             int contador = 0;
