@@ -29,11 +29,32 @@ namespace CorEscuela
               new Curso()  { Nombre = "502", Jornada = TiposJornada.Tarde },
             };
 
-            escuela.Cursos.Remove();
-            //Agregar un Iterable
+            // Let's create a temp Curso
+            //Curso tmp = new Curso { Nombre = "101-Vacacional", Jornada = TiposJornada.Noche };
+            // Add them to the Escuela
+            //escuela.Cursos.Add(tmp);
+            // Print the state
+            ImprimirCursosEscuela(escuela);
+
+            //WriteLine("Curso.Hash: " + tmp.GetHashCode());
+            // Remove the temp Curso
+
+            Predicate<Curso> miAlgoritmo = Predicado;
+
+            escuela.Cursos.RemoveAll(miAlgoritmo);
+            //escuela.Cursos.Remove(tmp);
+            WriteLine("===============");
+
+            // Append a complete collection to the Escuela
             escuela.Cursos.AddRange(otrColeccion);
 
+            // Print the state
             ImprimirCursosEscuela(escuela);
+        }
+
+        private static bool Predicado(Curso obj)
+        {
+            return obj.Nombre == "301";
         }
 
         private static void ImprimirCursosEscuela(Escuela escuela)
