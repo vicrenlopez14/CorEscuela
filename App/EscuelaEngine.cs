@@ -24,7 +24,30 @@ namespace CoreEscuela
 
         private void CargarEvaluaciones()
         {
-            throw new NotImplementedException();
+
+            foreach (var curso in Escuela.Cursos)
+            {
+
+                var evaluaciones = new List<Evaluaciones>();
+
+                foreach (var asignatura in curso.Asignaturas)
+                {
+                    Random rnd = new Random();
+
+                    // 5 evaluaciones por asignatura
+                    for (var i = 0; i < 5; i++)
+                    {
+                        // Vamos por cada alumno, añadiendo su respectiva evaluación de la asignatura
+                        foreach (var alumno in curso.Alumnos)
+                        {
+                            evaluaciones.Add(new Evaluaciones { Alumno = alumno, Nombre = $"Examen #{i + 1} de {asignatura.Name}", Asignatura = asignatura, Nota = (float)(rnd.NextDouble() * 5) });
+                        }
+                    }
+
+                }
+
+                curso.Evaluaciones = evaluaciones;
+            }
         }
 
         private void CargarAsignaturas()

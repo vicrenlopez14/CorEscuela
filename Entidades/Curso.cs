@@ -14,6 +14,8 @@ namespace CoreEscuela.Entidades
 
         public List<Alumno> Alumnos { get; set; }
 
+        public List<Evaluaciones> Evaluaciones { get; set;}
+
         public Curso() => UniqueId = Guid.NewGuid().ToString();
     }
 }
